@@ -149,6 +149,21 @@ with 1 event found.
 
 ![Case-Insensitive Search](screenshots/10_case_insensitive_search.png)
 
+### 11. Combined Search and Category Filtering
+
+**Test Case:** Apply search and category filters simultaneously.
+
+**Input:** Search `Music` and select the Technology category.
+
+**Expected Result:** No events appear because no event matches
+both the search query and selected category.
+
+**Observed Result:** The Technology chip remained selected,
+the search field retained `Music`, and the app displayed
+0 events found with an empty-state message.
+
+![Combined Search and Category Filters](screenshots/11_combined_filters.png)
+
 ## Running the App
 
 1. Clone the repository and open it in Android Studio.
