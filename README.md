@@ -60,6 +60,20 @@ Campus Event Explorer is a colorful Android application built with Kotlin, Jetpa
 
 ![Search by Event Category](screenshots/03_search_by_category.png)
 
+### 4. Filter Events Using Category Chips
+
+**Test Case:** Filter events using category chips
+
+**Action:** Select the Music category chip with an empty search field.
+
+**Expected Result:** Only Music events appear, and the selected chip is highlighted.
+
+**Observed Result:** Music chip highlighted, 1 event found — Fall Music Festival.
+
+**Result:** PASS
+
+![Category Chip Filtering](screenshots/04_category_chip_filter.png)
+
 ## Running the App
 
 1. Clone the repository and open it in Android Studio.
