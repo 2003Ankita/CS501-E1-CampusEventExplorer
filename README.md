@@ -208,6 +208,22 @@ and Share Event button.
 
 ![Event Details After Rotation](screenshots/14_details_rotation.png)
 
+### 15. Android System Back Navigation
+
+**Test Case:** Navigate back using Android's system Back action.
+
+**Action:** Search for `Music`, open Fall Music Festival,
+then use the Android system Back gesture/button.
+
+**Expected Result:** Returns to the event list while preserving
+the search query and filtered results.
+
+**Observed Result:** The Android system Back action returned
+to the event list with `Music` still in the search field
+and Fall Music Festival displayed as the only matching event.
+
+![Android System Back Navigation](screenshots/15_system_back.png)
+
 ## Running the App
 
 1. Clone the repository and open it in Android Studio.
