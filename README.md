@@ -136,6 +136,19 @@ query and filtered results preserved.
 
 ![Back Navigation](screenshots/09_back_navigation.png)
 
+### 10. Case-Insensitive Search
+
+**Test Case:** Search using mixed uppercase and lowercase letters.
+
+**Input:** `mUsIc`
+
+**Expected Result:** Search matches events regardless of capitalization.
+
+**Observed Result:** Entering `mUsIc` displayed Fall Music Festival
+with 1 event found.
+
+![Case-Insensitive Search](screenshots/10_case_insensitive_search.png)
+
 ## Running the App
 
 1. Clone the repository and open it in Android Studio.
