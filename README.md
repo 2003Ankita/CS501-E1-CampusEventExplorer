@@ -46,6 +46,20 @@ Campus Event Explorer is a colorful Android application built with Kotlin, Jetpa
 
 ![Search by Event Title](screenshots/02_search_by_title.png)
 
+### 3. Search by Event Category
+
+**Test Case:** Search by event category
+
+**Input:** `Music`
+
+**Expected Result:** Displays only events belonging to the Music category.
+
+**Observed Result:** 1 event found — Fall Music Festival.
+
+**Result:** PASS
+
+![Search by Event Category](screenshots/03_search_by_category.png)
+
 ## Running the App
 
 1. Clone the repository and open it in Android Studio.
