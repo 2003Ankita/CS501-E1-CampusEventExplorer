@@ -178,6 +178,21 @@ while the All category is selected.
 
 ![Clearing Search](screenshots/12_clear_search.png)
 
+### 13. Category Selection After Rotation
+
+**Test Case:** Preserve the selected category during device rotation.
+
+**Action:** Select Music, then rotate the emulator to landscape.
+
+**Expected Result:** The Music category remains selected,
+and the filtered event list is preserved.
+
+**Observed Result:** After rotation, the Music chip remained
+selected, and Fall Music Festival was still displayed
+with 1 event found.
+
+![Category Selection After Rotation](screenshots/13_category_rotation.png)
+
 ## Running the App
 
 1. Clone the repository and open it in Android Studio.
