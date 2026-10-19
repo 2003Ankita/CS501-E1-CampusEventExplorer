@@ -9,6 +9,7 @@ import com.ankitapatra.campuseventexplorer.data.EventRepository
 import com.ankitapatra.campuseventexplorer.navigation.EventNavGraph
 import com.ankitapatra.campuseventexplorer.ui.theme.CampusEventExplorerTheme
 import com.ankitapatra.campuseventexplorer.util.EventShareHelper
+import androidx.core.view.WindowCompat
 
 class MainActivity : ComponentActivity() {
 
@@ -16,6 +17,8 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        WindowCompat.getInsetsController(window, window.decorView)
+            .isAppearanceLightStatusBars = false
 
         setContent {
             CampusEventExplorerTheme {

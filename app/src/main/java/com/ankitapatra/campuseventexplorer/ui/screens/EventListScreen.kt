@@ -19,6 +19,13 @@ import com.ankitapatra.campuseventexplorer.ui.components.EventSearchBar
 import com.ankitapatra.campuseventexplorer.ui.theme.CampusDeepPurple
 import com.ankitapatra.campuseventexplorer.ui.theme.CampusPurple
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import com.ankitapatra.campuseventexplorer.ui.components.EventCategoryFilter
+
+
 
 @Composable
 fun EventListScreen(
@@ -28,16 +35,30 @@ fun EventListScreen(
     onEventSelected: (Long) -> Unit,
     modifier: Modifier = Modifier
 ) {
+    // Selected category survives screen rotation.
+    var selectedCategory by rememberSaveable {
+        mutableStateOf("All")
+    }
     // Filtering is derived from query, not stored separately.
+    // Filtering is derived from the search query and selected category.
     val filteredEvents = events.filter { event ->
-        event.title.contains(query.trim(), ignoreCase = true) ||
-                event.category.contains(query.trim(), ignoreCase = true)
+
+        val matchesSearch =
+            event.title.contains(query.trim(), ignoreCase = true) ||
+                    event.category.contains(query.trim(), ignoreCase = true)
+
+        val matchesCategory =
+            selectedCategory == "All" ||
+                    event.category == selectedCategory
+
+        matchesSearch && matchesCategory
     }
 
     Column(
         modifier = modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background)
+            .statusBarsPadding()
     ) {
 
         // Colorful header
@@ -59,19 +80,28 @@ fun EventListScreen(
                 .padding(24.dp)
         ) {
             Text(
-                text = "🎓 Campus Explorer",
+                text = "✦ YOUR CAMPUS, YOUR EVENTS",
+                color = androidx.compose.ui.graphics.Color.White.copy(alpha = 0.75f),
+                fontSize = 11.sp,
+                fontWeight = FontWeight.Bold,
+                letterSpacing = 2.sp
+            )
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            Text(
+                text = "Discover what's\nhappening ✨",
                 color = androidx.compose.ui.graphics.Color.White,
-                fontSize = 28.sp,
-                fontWeight = FontWeight.Bold
+                fontSize = 30.sp,
+                fontWeight = FontWeight.ExtraBold,
+                lineHeight = 36.sp
             )
 
             Spacer(modifier = Modifier.height(8.dp))
 
             Text(
-                text = "Discover what's happening on campus!",
-                color = androidx.compose.ui.graphics.Color.White.copy(
-                    alpha = 0.85f
-                ),
+                text = "Find your next favorite campus experience.",
+                color = androidx.compose.ui.graphics.Color.White.copy(alpha = 0.85f),
                 fontSize = 14.sp
             )
         }
@@ -85,10 +115,18 @@ fun EventListScreen(
                 vertical = 16.dp
             )
         )
-
+    // Horizontally scrollable category filters
+        EventCategoryFilter(
+            categories = listOf("All") + events.map { it.category }.distinct(),
+            selectedCategory = selectedCategory,
+            onCategorySelected = { selectedCategory = it },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 16.dp, end = 16.dp, bottom = 12.dp)
+        )
         // Number of matching events
         Text(
-            text = "${filteredEvents.size} events found",
+            text = "${filteredEvents.size} ${if (filteredEvents.size == 1) "event" else "events"} found",
             modifier = Modifier.padding(
                 horizontal = 20.dp,
                 vertical = 4.dp

@@ -34,13 +34,26 @@ fun EventDetailScreen(
         topBar = {
             TopAppBar(
                 title = {
-                    Text("Event Details")
+                    Text(
+                        text = "Event Details",
+                        fontWeight = FontWeight.Bold,
+                        color = Color.White
+                    )
                 },
                 navigationIcon = {
                     TextButton(onClick = onBack) {
-                        Text("← Back")
+                        Text(
+                            text = "← Back",
+                            color = Color.White,
+                            fontWeight = FontWeight.SemiBold
+                        )
                     }
-                }
+                },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = CampusDeepPurple,
+                    titleContentColor = Color.White,
+                    navigationIconContentColor = Color.White
+                )
             )
         }
     ) { innerPadding ->

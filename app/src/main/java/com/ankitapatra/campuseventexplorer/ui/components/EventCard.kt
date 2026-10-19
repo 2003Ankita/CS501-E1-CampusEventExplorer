@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.sp
 import com.ankitapatra.campuseventexplorer.model.CampusEvent
 import com.ankitapatra.campuseventexplorer.ui.theme.CampusText
 import com.ankitapatra.campuseventexplorer.ui.theme.CampusTextSecondary
+import androidx.compose.ui.graphics.Color
 
 @Composable
 fun EventCard(
@@ -87,10 +88,29 @@ fun EventCard(
                     overflow = TextOverflow.Ellipsis
                 )
 
+                Box(
+                    modifier = Modifier
+                        .background(
+                            color = style.accentColor.copy(alpha = 0.10f),
+                            shape = RoundedCornerShape(10.dp)
+                        )
+                        .padding(horizontal = 10.dp, vertical = 6.dp)
+                ) {
+                    Text(
+                        text = "📅 ${event.time}",
+                        color = CampusText,
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Medium
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(4.dp))
+
                 Text(
-                    text = "🕒 ${event.time}",
-                    color = CampusTextSecondary,
-                    fontSize = 12.sp
+                    text = "View details  →",
+                    color = style.accentColor,
+                    fontSize = 12.sp,
+                    fontWeight = FontWeight.SemiBold
                 )
             }
         }
