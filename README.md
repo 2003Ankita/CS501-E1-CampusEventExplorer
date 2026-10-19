@@ -193,6 +193,21 @@ with 1 event found.
 
 ![Category Selection After Rotation](screenshots/13_category_rotation.png)
 
+### 14. Event Details After Rotation
+
+**Test Case:** Preserve the event details screen during rotation.
+
+**Action:** Open Fall Music Festival and rotate the emulator.
+
+**Expected Result:** The same event details remain accessible
+without navigating back or crashing.
+
+**Observed Result:** After rotation, the Fall Music Festival
+details screen remained open with the correct event information
+and Share Event button.
+
+![Event Details After Rotation](screenshots/14_details_rotation.png)
+
 ## Running the App
 
 1. Clone the repository and open it in Android Studio.
