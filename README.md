@@ -164,6 +164,20 @@ the search field retained `Music`, and the app displayed
 
 ![Combined Search and Category Filters](screenshots/11_combined_filters.png)
 
+### 12. Clearing Search Restores Events
+
+**Test Case:** Clear an existing search query.
+
+**Action:** Search for `Music`, then clear the search field
+while the All category is selected.
+
+**Expected Result:** All 8 campus events reappear.
+
+**Observed Result:** Clearing the search query restored all
+8 campus events, with the All category remaining selected.
+
+![Clearing Search](screenshots/12_clear_search.png)
+
 ## Running the App
 
 1. Clone the repository and open it in Android Studio.
