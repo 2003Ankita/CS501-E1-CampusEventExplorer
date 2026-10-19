@@ -56,8 +56,6 @@ Campus Event Explorer is a colorful Android application built with Kotlin, Jetpa
 
 **Observed Result:** 1 event found — Fall Music Festival.
 
-**Result:** PASS
-
 ![Search by Event Category](screenshots/03_search_by_category.png)
 
 ### 4. Filter Events Using Category Chips
@@ -70,9 +68,73 @@ Campus Event Explorer is a colorful Android application built with Kotlin, Jetpa
 
 **Observed Result:** Music chip highlighted, 1 event found — Fall Music Festival.
 
-**Result:** PASS
-
 ![Category Chip Filtering](screenshots/04_category_chip_filter.png)
+
+### 5. No Results Found
+
+**Test Case:** Search with no matching events
+
+**Input:** `xyz12345`
+
+**Expected Result:** Displays zero events and a helpful empty-state message.
+
+**Observed Result:** Entering `xyz12345` displayed 0 events and a helpful empty-state message. No event cards were shown.
+
+![No Results Found](screenshots/05_no_results.png)
+
+### 6. Event Details Navigation
+
+**Test Case:** Navigate from event list to event details
+
+**Action:** Tap Fall Music Festival.
+
+**Expected Result:** Displays the correct event title, category,
+date/time, location, and description.
+
+**Observed Result:** Tapping Fall Music Festival successfully opened its details screen, displaying the correct title, category, date/time, location, and description.
+
+![Event Details](screenshots/06_event_details.png)
+
+### 7. Share Event
+
+**Test Case:** Share event using Android's share chooser
+
+**Action:** Tap Share Event.
+
+**Expected Result:** Opens the Android share chooser with event
+title, time, and location.
+
+**Observed Result:** Tapping Share Event successfully launched the Android share chooser with the event title, date/time, and location included in the shared text.
+
+![Share Event](screenshots/07_share_event.png)
+
+### 8. Search State After Rotation
+
+**Test Case:** Preserve search state during device rotation
+
+**Input:** `Music`
+
+**Action:** Rotate emulator to landscape.
+
+**Expected Result:** Search query and filtered results remain
+unchanged after rotation.
+
+**Observed Result:** After rotating the emulator to landscape, the search query `Music` remained populated, and the filtered event results were preserved.
+
+![Rotation State](screenshots/08_rotation_state.png)
+
+### 9. Back Navigation
+
+**Test Case:** Return from details to event list
+
+**Action:** Open Fall Music Festival, then tap Back.
+
+**Expected Result:** Returns to the list with the previous search
+query and filtered results preserved.
+
+**Observed Result:** Tapping Back from the Event Details screen returned to the event list while preserving the previous search query and filtered results.
+
+![Back Navigation](screenshots/09_back_navigation.png)
 
 ## Running the App
 
